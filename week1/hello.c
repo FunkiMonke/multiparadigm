@@ -18,7 +18,7 @@ int main()
     for (int i = 0; i==0;)
     {
         printf("C = 0, F = 1 - other to quit");
-        if (!scanf("%d", &type)==1 || type>1 || type<0)
+        if(!scanf("%d", &type)==1 || type>1 || type<0)
         {
             printf("shit");
             break;
