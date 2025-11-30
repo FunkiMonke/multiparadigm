@@ -39,7 +39,7 @@ int main() {
     //b.m_protected = 6; 
  
     Prot d;
-    d.m_public = 7; 
+    //d.m_public = 7; 
     //d.m_private = 8; 
     //d.m_protected = 9; 
 }

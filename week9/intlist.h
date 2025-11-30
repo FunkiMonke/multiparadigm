@@ -10,16 +10,17 @@ class Intlist
 private:
   class Node
   {
-  public:
-    int Element;
-    Node* Next;
-    
-    Node() : Next(nullptr) {}
-    Node(int data, Node* pnode = nullptr) :
-      Element(data), Next(pnode) {}
+    public:
+      int Element;
+      Node* Next;
+      
+      Node() : Next(nullptr) {}
+      Node(int data, Node* pnode = nullptr) :
+        Element(data), Next(pnode) {}
   };
 
   Node* Head;
+
 public:
   Intlist();
   ~Intlist();
@@ -27,6 +28,12 @@ public:
   bool Insert(const int& new_element);
   bool Delete(const int& del_element);
   void Print(ostream& out_stream) const;
+  int getHead();
+  void doubleElements();
+  int count();
+  int valueAt(const int i);
+  int occurs(const int i);
+  bool insertAtEnd(int n);
 };
 
 ostream& operator<<(ostream& out_stream,
