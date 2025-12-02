@@ -1,14 +1,17 @@
 #include "Library.h"
+//#include "Journal.h"
+#include "Book.h"
+#include "Magazine.h"
 
-void Library::addBook(Book b)
+void Library::addPublication(Publication b)
 {
     shelf.push_back(b);
     b.setAvailability(false);
 }
 
-void Library::removeBook(Book b)
+void Library::removePublication(Publication b)
 {
-    for(Book f : shelf)
+    for(Publication f : shelf)
     {
         if (f.getTitle() == b.getTitle())
         {
@@ -36,9 +39,9 @@ void Library::removeMember(Member m)
     }
 }
 
-void Library::displayBooks()
+void Library::displayPublications()
 {
-    for(Book f : shelf)
+    for(Publication f : shelf)
     {
         cout<<f.getTitle()<<endl;
     }
@@ -54,7 +57,7 @@ void Library::displayMembers()
 
 void Library::search(string t)
 {
-    for(Book B : shelf)
+    for(Publication B : shelf)
     {
         if (B.getTitle() != t||B.getID() != t)
         {
@@ -66,18 +69,18 @@ void Library::search(string t)
         }
         else
         {
-            cout<<"Book not Available";
+            cout<<"Publication not Available";
         }
     }
 }
 
 void Library::save()
 {
-    ofstream bookOutput("Test.txt");
+    ofstream PublicationOutput("Test.txt");
     ofstream memberOutput("Test2.txt");
-    if (!bookOutput)
+    if (!PublicationOutput)
     {
-        cerr<<"bookOutput stream not made";
+        cerr<<"PublicationOutput stream not made";
         return;
     }
 
@@ -87,19 +90,19 @@ void Library::save()
         return;
     }
     
-    for(Book b : shelf)
+    for(Publication b : shelf)
     {
-        bookOutput<<b.getID()<<" ";
-        bookOutput<<"\""<<b.getTitle()<<"\" ";
-        bookOutput<<"\""<<b.getAuthor()<<"\" ";
-        bookOutput<<"\""<<b.getGenre()<<"\" ";
-        bookOutput<<b.getPageCount()<<" ";
-        bookOutput<<b.getAvailability()<<endl;
+        PublicationOutput<<b.getID()<<" ";
+        PublicationOutput<<"\""<<b.getTitle()<<"\" ";
+        PublicationOutput<<"\""<<b.getAuthor()<<"\" ";
+        PublicationOutput<<"\""<<b.getGenre()<<"\" ";
+        PublicationOutput<<b.getPageCount()<<" ";
+        PublicationOutput<<b.getAvailability()<<endl;
     }
     for(Member m : memList)
     {
         memberOutput<<m.getMemId()<<" "<<m.getName()<<" ";
-        for(Book b : m.getList())
+        for(Publication b : m.getList())
         {
             memberOutput<<b.getID()<<" ";
         }
@@ -107,19 +110,19 @@ void Library::save()
     }
 
     memberOutput.close();
-    bookOutput.close();
+    PublicationOutput.close();
 }
 
 void Library::load()
 {
-    ifstream bookInput("books.txt");
+    ifstream PublicationInput("books.txt");
     ifstream memberInput("members.txt");
     string line = " ";
     string data;
 
-    if (!bookInput)
+    if (!PublicationInput)
     {
-        cerr<<"bookinput stream not made";
+        cerr<<"Publicationinput stream not made";
         return;
     }
 
@@ -129,7 +132,7 @@ void Library::load()
         return;
     }
 
-    while (getline(bookInput, line))
+    while (getline(PublicationInput, line))
     {
         stringstream splitter(line);
         Book b;
@@ -169,7 +172,7 @@ void Library::load()
             }
         }
 
-        addBook(b);
+        addPublication(b);
     }
     
 
@@ -193,21 +196,21 @@ void Library::load()
                 
                 default:
                     bool exists = false;
-                    for(Book b : shelf)
+                    for(Publication b : shelf)
                     {
                         if (b.getID() == data)
                         {
-                            m.borrowBook(b);
+                            m.borrowPublication(b);
                             exists = true;
                             break;
                         }
                     }
                     if (!exists)
                     {
-                        Book nb;
+                        Publication nb;
                         nb.setID(data);
-                        addBook(nb);
-                        m.borrowBook(nb);
+                        addPublication(nb);
+                        m.borrowPublication(nb);
                     }
                     break;
             }

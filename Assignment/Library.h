@@ -6,26 +6,23 @@
 #include <fstream>
 #include <sstream>
 #include "Member.h"
-#include "Book.h"
+#include "Publication.h"
 using namespace std;
 
 class Library
 {
 private:
-    vector<Book> shelf;
+    vector<Publication> shelf;
     vector<Member> memList;
 public:
-    void addBook(Book b);
-    void removeBook(Book b);
+    void addPublication(Publication b);
+    void removePublication(Publication b);
     void addMember(Member M);
     void removeMember(Member m);
-    void displayBooks();
+    void displayPublications();
     void displayMembers();
     void search(string t);
     void save();
     void load();
-
-    void save2();
-    void load2();
 };
 #endif

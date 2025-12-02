@@ -6,7 +6,7 @@ Member::Member()
     name = " ";
 }
 
-Member::Member(int i, string n)
+Member::Member(string i, string n)
 {
     memID = i;
     name = n;
@@ -32,20 +32,20 @@ void Member::setName(string n)
     name = n;
 }
 
-vector<Book> Member::getList()
+vector<Publication> Member::getList()
 {
     return list;
 }
 
-void Member::borrowBook(Book b)
+void Member::borrowPublication(Publication b)
 {
     list.push_back(b);
     b.setAvailability(false);
 }
 
-void Member::returnBook(Book b)
+void Member::returnPublication(Publication b)
 {
-    for(Book r : list)
+    for(Publication r : list)
     {
         if (r.getTitle() == b.getTitle())
         {
@@ -57,7 +57,7 @@ void Member::returnBook(Book b)
 
 void Member::displayList()
 {
-    for (Book b : list)
+    for (Publication b : list)
     {
         cout<<b.getTitle()<<endl;
     }

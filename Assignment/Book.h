@@ -1,32 +1,17 @@
 #ifndef _BOOK_H_
 #define _BOOK_H_ 
 #include <string>
+#include "Publication.h"
 using namespace std;
 
-class Book
+class Book: public Publication
 {
 private:
-    string ID;
-    string title;
-    string author;
-    string genre;
-    int pageCount;
-    bool availability;
-
+    bool hardback;
 public:
     Book();
-    Book(string id, string t, string a, string g, int pg, bool torf);
-    string getID();
-    void setID(string id);
-    string getTitle();
-    void setTitle(string t);
-    string getAuthor();
-    void setAuthor(string a);
-    string getGenre();
-    void setGenre(string a);
-    int getPageCount();
-    void setPageCount(int pg);
-    bool getAvailability();
-    void setAvailability(bool torf);
+    Book(string id, string t, string a, string g, int pg, bool torf, int pd, bool hb);
+    bool getHardback();
+    void setHardback(bool hb);
 };
 #endif

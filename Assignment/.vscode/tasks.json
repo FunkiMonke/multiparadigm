@@ -11,6 +11,9 @@
                 "Library.cpp",
                 "main.cpp",
                 "Member.cpp",
+                "Publication.cpp",
+                "Journal.cpp",
+                "Magazine.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

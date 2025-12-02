@@ -1,6 +1,6 @@
-#include "Book.h"
+#include "Journal.h"
 
-Book::Book()
+Journal::Journal()
 {
     ID = "id";
     title = "title";
@@ -9,11 +9,11 @@ Book::Book()
     pageCount = 0;
     availability = true;
     penaltyDays = 0;
-    penaltyCost = 5;
-    hardback = false;
+    penaltyCost = 3;
+    volume = 0;
 }
 
-Book::Book(string id, string t, string a, string g, int pg, bool torf, int pd, bool hb)
+Journal::Journal(string id, string t, string a, string g, int pg, bool torf, int pd, int v)
 {
     ID = id;
     title = t;
@@ -22,16 +22,15 @@ Book::Book(string id, string t, string a, string g, int pg, bool torf, int pd, b
     pageCount = pg;
     availability = torf;
     penaltyDays = pd;
-    hardback = hb;
+    volume = v;
 }
 
-bool Book::getHardback()
+int Journal::getVolume()
 {
-    return hardback;
+    return volume;
 }
 
-void Book::setHardback(bool hb)
+void Journal::setVolume(int v)
 {
-    hardback = hb;
+    volume = v;
 }
-

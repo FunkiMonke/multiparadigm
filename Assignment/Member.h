@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Book.h"
+#include "Publication.h"
 using namespace std;
 
 class Member
@@ -11,17 +11,17 @@ class Member
 private:
     string memID;
     string name;
-    vector<Book> list;
+    vector<Publication> list;
 public:
     Member();
-    Member(int i, string n);
+    Member(string i, string n);
     string getMemId();
     void setMemId(string i);
     string getName();
     void setName(string t);
-    vector<Book> getList();
-    void borrowBook(Book b);
-    void returnBook(Book b);
+    vector<Publication> getList();
+    void borrowPublication(Publication b);
+    void returnPublication(Publication b);
     void displayList();
 };
 #endif
