@@ -5,13 +5,15 @@
 #include <vector>
 #include "Publication.h"
 using namespace std;
-
+//header - class declaration
 class Member
 {
+//fields
 private:
     string memID;
     string name;
-    vector<Publication> list;
+    vector<Publication*> list;
+//methods
 public:
     Member();
     Member(string i, string n);
@@ -19,9 +21,9 @@ public:
     void setMemId(string i);
     string getName();
     void setName(string t);
-    vector<Publication> getList();
-    void borrowPublication(Publication b);
-    void returnPublication(Publication b);
+    vector<Publication*> getList();
+    void borrowPublication(Publication* p);
+    void returnPublication(Publication* p);
     void displayList();
 };
 #endif

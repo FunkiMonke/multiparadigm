@@ -1,5 +1,6 @@
 #include "Magazine.h"
 
+//Constructor - sets all fields to default values
 Magazine::Magazine()
 {
     ID = "id";
@@ -13,6 +14,7 @@ Magazine::Magazine()
     issueNum = 0;
 }
 
+//Constructor - sets all fields to inputted values
 Magazine::Magazine(string id, string t, string a, string g, int pg, bool torf, int pd, int in)
 {
     ID = id;
@@ -22,14 +24,17 @@ Magazine::Magazine(string id, string t, string a, string g, int pg, bool torf, i
     pageCount = pg;
     availability = torf;
     penaltyDays = pd;
+    penaltyCost = 2;
     issueNum = in;
 }
 
+//method to return value of issueNum
 int Magazine::getIssueNum()
 {
     return issueNum;
 }
 
+//method to set value of issueNum
 void Magazine::setIssueNum(int in)
 {
     issueNum = in;

@@ -1,5 +1,5 @@
 #include "Journal.h"
-
+//Constructor - sets all fields to default values
 Journal::Journal()
 {
     ID = "id";
@@ -13,6 +13,7 @@ Journal::Journal()
     volume = 0;
 }
 
+//Constructor - sets all fields to inputted values
 Journal::Journal(string id, string t, string a, string g, int pg, bool torf, int pd, int v)
 {
     ID = id;
@@ -22,14 +23,16 @@ Journal::Journal(string id, string t, string a, string g, int pg, bool torf, int
     pageCount = pg;
     availability = torf;
     penaltyDays = pd;
+    penaltyCost = 3;
     volume = v;
 }
 
+//method to get the volume number
 int Journal::getVolume()
 {
     return volume;
 }
-
+//method to set the volume number
 void Journal::setVolume(int v)
 {
     volume = v;

@@ -8,7 +8,6 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "Book.cpp",
-                "Library.cpp",
                 "main.cpp",
                 "Member.cpp",
                 "Publication.cpp",

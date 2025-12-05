@@ -2,8 +2,14 @@
 #define _PUBLICATION_H_ 
 #include <string>
 using namespace std;
+//header class
+
+//forward declaration
+class Member;
+//class definiation - parent/base class for inheritance for book, journal and magazine
 class Publication
 {
+//inherited fields
 protected:
     string ID;
     string title;
@@ -13,6 +19,8 @@ protected:
     bool availability;
     int penaltyDays;
     int penaltyCost;
+    Member* reserver;
+//inherited methods
 public:
     Publication();
     Publication(string id, string t, string a, string g, int pg, bool torf, int pd, int pc);
@@ -31,5 +39,7 @@ public:
     int getPenaltyDays();
     void setPenaltyDays(int pd);
     int getPenaltyCost();
+    Member* getReserver();
+    void setReserver(Member* m);
 };
 #endif

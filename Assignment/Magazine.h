@@ -4,10 +4,13 @@
 #include <string>
 using namespace std;
 
+//header - inheritis from publication
 class Magazine:public Publication
 {
 private:
+//fields
     int issueNum;
+//methods
 public:
     Magazine();
     Magazine(string id, string t, string a, string g, int pg, bool torf, int pd, int in);
